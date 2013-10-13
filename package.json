@@ -6,6 +6,7 @@
     "html",
     "scraping",
     "open graph protocol",
+    "ogp",
     "twitter cards"
   ],
   "main": "./lib/htmlcarve",
@@ -23,5 +24,31 @@
   },
   "engines": {
     "node": "*"
-  }
+  },
+  "maintainers": [
+    {
+      "name": "Maximilian Stroh",
+      "email": "Hisako1337@gmail.com",
+      "web": "http://blog.plague-dev.de"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Maximilian Stroh",
+      "email": "Hisako1337@gmail.com",
+      "web": "http://blog.plague-dev.de"
+    }
+  ],
+  "repositories"  : [
+    {
+      "type": "git",
+      "url": "https://github.com/Anonyfox/node-htmlcarve.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
 }

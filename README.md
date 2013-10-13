@@ -1,7 +1,7 @@
 #node-htmlcarve
 Extract essential meta-informations from any web page, fast and dead simple.  Do you need general informations from a given html-site, like the title, a summary, a favicon or a possible RSS-Feed? Just throw an url into this module, and it'll try to find that stuff for you. 
 
-**warning: this isn't ready for anything than tinkering around. there are currently *no tests* written!!**
+**warning: this is a work-in-progress and isn't ready for anything than tinkering around. there are currently *no tests* written!!**
 
 
 ## Installation
@@ -43,7 +43,7 @@ Htmlcarve will process several steps to gather all that informations.
 
 3. Go through general html metatags and extract informations from there. 
 
-4. Merge the results. If any information is present in more than one step above, use the information from the higher-priorized source. *Priorization-order: OGP > TwitterCard > HtmlMetaTags. *
+4. Merge the results. If any information is present in more than one step above, use the information from the higher-priorized source. *Priorization-order: OGP > TwitterCard > HtmlMetaTags.*
 
 ##ToDo/Roadmap: 
 - summarize the html-content on the given page, if no further informations are found. 
@@ -55,3 +55,6 @@ Htmlcarve will process several steps to gather all that informations.
 - include the full protocols, not only this quick'n'dirty hack. 
 - include schema.org
 - include microdata formats
+
+##License
+MIT.
