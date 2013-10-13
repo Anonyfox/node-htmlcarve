@@ -13,7 +13,11 @@
   "bin": {
     "htmlcarve": "./bin/htmlcarve"
   },
-  "author": "Maximilian Stroh",
+  "author": {
+    "name": "Maximilian Stroh",
+    "email": "Hisako1337@gmail.com",
+    "web": "http://blog.plague-dev.de"
+  },
   "dependencies": {
     "coffee-script": "~1.6.3",
     "cheerio": "~0.12.3",
@@ -38,16 +42,24 @@
       "web": "http://blog.plague-dev.de"
     }
   ],
-  "repositories"  : [
-    {
-      "type": "git",
-      "url": "https://github.com/Anonyfox/node-htmlcarve.git"
-    }
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anonyfox/node-htmlcarve.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anonyfox/node-htmlcarve/issues"
+  },
   "licenses": [
     {
       "name": "MIT",
       "url": "http://www.opensource.org/licenses/mit-license.php"
     }
-  ]
+  ],
+  "devDependencies": {
+    "mocha": "~1.13.0",
+    "chai": "~1.8.1"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script -R spec"
+  }
 }
