@@ -36,15 +36,21 @@ The returned `data` object has several attributes, where `data.info` is the comp
 
 ##How does this stuff work?
 Htmlcarve will process several steps to gather all that informations. 
+
 1. Scan for OpenGraphProtocol (OGP) metadata, and use ist. Usually these informations (if present) are the most valuable and desireable ones. 
+
 2. Look for Twitter Card metadata. Append the found informations.
+
 3. Go through general html metatags and extract informations from there. 
-4. Merge the results. If any information is present in more than one step above, use the information from the higher-priorized source. Priorization-order: OGP > TwitterCard > HtmlMetaTags. 
+
+4. Merge the results. If any information is present in more than one step above, use the information from the higher-priorized source. *Priorization-order: OGP > TwitterCard > HtmlMetaTags. *
 
 ##ToDo/Roadmap: 
 - summarize the html-content on the given page, if no further informations are found. 
 - extract keywords if none are present
 - write some tests ;_;
+- add a more useful documentation
+- design a better response format
 - clean up the code
 - include the full protocols, not only this quick'n'dirty hack. 
 - include schema.org
