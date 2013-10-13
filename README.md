@@ -7,8 +7,7 @@ Extract essential meta-informations from any web page, fast and dead simple.  Do
 ## Installation
 Clone this repository, grab the single coffeescript/javascript-file, or simply use NPM: 
 
-```npm install htmlcarve``` 
-(not yet published)
+```npm install htmlcarve```
 
 ##Usage
 use it from the command line: 
