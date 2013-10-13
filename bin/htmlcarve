@@ -1,0 +1,5 @@
+#!/usr/bin/env coffee
+require "coffee-script"
+htmlcarve = require "../lib/htmlcarve"
+htmlcarve.fromUrl (process.argv[2] || ""), (error,info) ->
+  console.log info

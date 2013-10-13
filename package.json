@@ -1,0 +1,27 @@
+{
+  "name": "htmlcarve",
+  "version": "0.0.1",
+  "description": "Extract essential meta-informations from any web page, fast and dead simple.",
+  "keywords": [
+    "html",
+    "scraping",
+    "open graph protocol",
+    "twitter cards"
+  ],
+  "main": "./lib/htmlcarve",
+  "bin": {
+    "htmlcarve": "./bin/htmlcarve"
+  },
+  "author": "Maximilian Stroh",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "coffee-script": "~1.6.3",
+    "cheerio": "~0.12.3",
+    "iconv-lite": "~0.2.11",
+    "chardet": "0.0.8",
+    "request": "~2.27.0"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
