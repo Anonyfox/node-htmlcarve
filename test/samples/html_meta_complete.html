@@ -1,0 +1,688 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Distributed and Self-organizing Systems (VSR)</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="author" content="VSR Research Group" />
+		<meta name="copyright" content="TU Chemnitz, Verteilte und Selbstorganisierende Rechnersysteme Research Group" />
+		<meta name="country" content="de" />
+		<meta name="coverage" content="Worldwide" />
+		<meta property="fb:page_id" content="133720720014600" />
+
+		<meta name="description" content="Technische Universität Chemnitz, TU Chemnitz, Distributed and Self-organizing Systems (VSR), Computer Science: VSR Research Group" />
+		<meta name="keywords" content="Technische Universität Chemnitz, TU Chemnitz, Distributed and Self-organizing Systems Research Group, Computer Science, VSR Research Group, Web Engineering, Web, Collaboration, Cooperation, Agile, Research, Software Development, Linked Data, Semantic Web, Web 2.0, Web 3.0" />
+		<meta name="language" content="en" />
+		<meta name="organization-Email" content="gaedke@informatik.tu-chemnitz.de" />
+		<meta name="revisit_after" content="3 days" />
+		<meta name="robots" content="index,follow" />
+
+		<meta name="geo.region" content="DE-SN" />
+		<meta name="geo.placename" content="Chemnitz" />
+		<meta name="geo.position" content="50.8390;12.9280" />
+		<meta name="ICBM" content="50.8390, 12.9280" />
+
+		<link rel="stylesheet" type="text/css" href="https://www.tu-chemnitz.de/tucal/css/standard.css" media="screen" title="screen" />
+		<link rel="stylesheet" type="text/css" href="https://www.tu-chemnitz.de/tucal/css/print.css" media="print" />
+		<link rel="alternate stylesheet" type="text/css" href="https://www.tu-chemnitz.de/tucal/css/text.css" media="screen" title="text" />
+		<!--[if IE 6]>
+		<link rel="stylesheet" type="text/css" href="https://www.tu-chemnitz.de/tucal/css/ie6.css" media="screen" />
+		<![endif]-->
+
+		<!--
+		<script src="https://www.tu-chemnitz.de/tucal/js/highslide/highslide-with-html.packed.js" type="text/javascript"></script>
+		<script src="https://www.tu-chemnitz.de/tucal/js/highslide/highslide.cfg.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="https://www.tu-chemnitz.de/tucal/js/highslide/highslide.css" />
+		-->
+		<link rel="stylesheet" type="text/css" href="/css/redesign.css" media="screen" title="screen" />
+
+		<script src="/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+		
+		<script src="/js/jquery.reflection.js" type="text/javascript"></script>
+		
+
+		<script src="https://www.tu-chemnitz.de/tucal/js/standard.js" type="text/javascript"></script>
+		<link rel="shortcut icon" href="https://vsr.informatik.tu-chemnitz.de/img/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="Distributed and Self-organizing Systems (VSR): News" charset="utf-8" href="/news/rss/" />
+
+		
+	<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+	<script type="text/javascript" src="/js/slidebox.v2.js"></script>
+	<script type="text/javascript" src="/js/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.lightbox-0.5.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.twitter.blogger.js"></script>
+	<script id="tweetTemplate" type="text/x-jquery-tmpl">
+	<li>
+		<img src="${profile_image}" alt="profile image" class="left" />
+		<div class="tweet">
+			<div><strong><a href="https://twitter.com/${username}" title="visit user profile" class="nohl">${username}</a></strong> <span class="name">${fullname}</span></div>
+			<div>{{html status}}</div>
+			<div>
+				<span>
+					<a href="https://twitter.com/${username}/statuses/${id}" title="show status">${created_at}</a>
+					&nbsp;&nbsp;&nbsp;
+					<a class="reply" href="https://twitter.com/?status=@${username}%20&in_reply_to_status_id=${id}&in_reply_to=${username}" title="reply">reply</a>
+				</span>
+			</div>
+		</div>
+	</li>
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#tweetwall').twitterblogger('myVSR', { type: 'list', listname: 'team', count: 8, template: 'tweetTemplate' });
+			$('#slidebox').SlideBox({ height: 620 });
+		});
+	</script>
+	<style type="text/css">
+	#tweetwall
+	{
+		margin-top: 5px;
+		list-style: none;
+		padding: 0;
+	}
+	#tweetwall li
+	{
+		border-bottom: 1px dotted silver;
+		margin-bottom: 10px;
+		min-height: 50px;
+	}
+	.tweet
+	{
+		margin-bottom: 10px;
+		margin-left: 50px;
+	}
+	.tweet span
+	{
+		font-size: 0.8em;
+		color: Gray;
+	}
+	.tweet span a
+	{
+		text-decoration: none;
+		color: Gray;
+	}
+	.tweet span a:hover
+	{
+		text-decoration: underline;
+	}
+	#tweetwall img.left
+	{
+		float: left;
+		height: 40px;
+		width: 40px;
+		margin-top:3px;
+	}
+	.hand {
+		width: 28px;
+		vertical-align: -2px;
+	}	
+	</style>
+
+
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-36101961-1']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+	<body>
+	<div id="container">
+			<div class="invisible">
+				<h1>Chemnitz University of Technology, Computer Science: Distributed and Self-organizing Systems Research Group</h1>
+				<hr />
+			</div>
+			<div id="banner">
+				<div style="height:50px;white-space:nowrap;float:left;">
+					<a href="https://www.tu-chemnitz.de/index.html"><img src="https://www.tu-chemnitz.de/tucal/img/banner_engl.gif" alt="TU-Logo" height="50" border="0" /></a>
+				</div>
+				<div id="fakultbild">
+					<img src="https://vsr.informatik.tu-chemnitz.de/images/weblogo.png" width="166" height="50" alt="Computer Science: VSR Research Group" />
+				</div>
+				<div id="kopfbild">
+					<img src="https://www.tu-chemnitz.de/tucal/img/titel/titel_inform_engl.jpg" width="300" height="50" alt="Computer Science: VSR Research Group" />
+				</div>
+			</div>
+			<div id="slogan">Distributed and Self-organizing Systems Research Group (VSR)</div>
+			<div id="tools">
+				<div id="suche">
+					<form action="https://suche.tu-chemnitz.de/search" onsubmit="return tuc_search()" name="suchen" method="get" style="margin:0px">
+						<fieldset>
+							<legend class="invisible">Suche im Online-Angebot der TU Chemnitz</legend>
+							<label for="suchen" class="invisible">search word</label>
+							<input type="hidden" name="output" value="xml_no_dtd" />
+							<input type="hidden" name="client" value="tu_frontend" />
+							<input type="hidden" name="proxystylesheet" value="tu_frontend" />
+							<input type="hidden" name="oe" value="UTF-8" />
+							<input type="hidden" name="ie" value="latin1" />
+							<input type="hidden" name="site" value="default_collection" />
+							<input type="text" id="suchen" name="q" class="searchf_grau" value="search word" onfocus="if (this.defaultValue==this.value) this.value=''; this.className='searchf';srchtype(1)" onclick="srchtype(1)" /><input type="image" name="suchen" title="search" value="" src="https://www.tu-chemnitz.de/tucal/img/green4.gif" class="searchbutton" />
+						</fieldset>
+						<div id="srchtype" onmouseover="srchtype(1)" onmouseout="srchtype(-1)" style="position:absolute;padding-bottom:0.5em;">
+							<input name="t" type="radio" value="text" onmouseover="srchtype(1)" id="st1" checked="checked" />
+							<label for="st1">Volltext</label><br />
+							<input name="t" type="radio" value="pers" onmouseover="srchtype(1)" id="st2" />
+							<label for="st2">Personen (Telefon, E-Mail)</label><br />
+							<input name="t" type="radio" value="uakt" onmouseover="srchtype(1)" id="st3" />
+							<label for="st3">Uni aktuell</label><br />
+							<input name="t" type="radio" value="beol" onmouseover="srchtype(1)" id="st5" />
+							<label for="st5">Beolingus-W&ouml;rterbuch</label><br />
+							<input name="t" type="radio" value="goog" onmouseover="srchtype(1)" id="st6" />
+							<label for="st6">Websuche mit Google</label><br />
+						</div>
+					</form>
+				</div>
+				<div id="links" class="vmenu">
+					<ul style="width:10em">
+						<li class="klapp">Go directly to ...
+							<ul class="klappm">
+								<li class="kopf"><a href="https://www.tu-chemnitz.de/tu/">University</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/tu/lageplan/index.php">Campus map</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/www-index/personen.html">People: Phone, E-Mail</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/www-index/wwwindex.php">University from A to Z</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/stuwe/speiseplan_public/web/web_RH.php">Mensa menu</a></li>
+								<li class="kopf"><a href="https://www.tu-chemnitz.de/studium">Study</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/studium/studiengaenge/">Study options</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/verwaltung/studentenamt/abt12/">Studentensekretariat</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/verwaltung/studentenamt/zpa/">Pr&uuml;fungsamt</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/verwaltung/vlvz/">Vorlesungsverzeichnis</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/e-learning/">E-Learning, Lernplattform</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/usz/">Universit&auml;tssport</a></li>
+								<li class="normal"><a href="https://www.stura.tu-chemnitz.de/">Studentenrat</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/stuwe/">Studentenwerk</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/studium/angebotdb/">Jobb&ouml;rse</a></li>
+								<li class="kopf"><a href="https://www.tu-chemnitz.de/urz/netz/netzdienste.html">Network services</a></li>
+								<li class="normal"><a href="https://mail.tu-chemnitz.de/">Webmail</a></li>
+								<li class="normal"><a href="https://dict.tu-chemnitz.de/">BEOLINGUS Dictionary</a></li>
+								<li class="normal"><a href="https://www.tu-chemnitz.de/urz/netz/wlan/">WiFi</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div id="tooltext">
+					<ul class="menu">
+						<li><a href="https://www.tu-chemnitz.de/tu/home/wtc"><img src="https://www.tu-chemnitz.de/tucal/img/login.png" alt="Anmelden" title="Am Web-Trust-Center anmelden" width="20" height="20" /></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="homenav">
+				<ul class="menu">
+					<li class="h"><a href="https://www.tu-chemnitz.de/en/" title="Homepage">Chemnitz University of Technology</a></li><li><a href="https://www.tu-chemnitz.de/informatik/">Computer Science</a></li><li><a href="https://vsr.informatik.tu-chemnitz.de/">Distributed and Self-organizing Systems</a></li>
+				</ul>
+			</div>
+			<div id="container_left">
+				<div id="menulinks" class="vmenu">
+					<!-- Beginn Navigation -->
+					<ul>
+						<li class="kopf"><a href="/">Research Group</a></li>
+						<li class="normal"><a href="/about/">About us</a></li>
+						<li class="normal"><a href="/mission/">Our Culture</a></li>
+						<li class="normal"><a href="/people/">People</a></li>
+						<li class="kopf"><span class="no">Research</span></li>
+						<li class="normal"><a href="/research/areas/">Research Areas</a></li>
+						<li class="normal"><a href="/publications/">Publications</a></li>
+						<li class="normal"><a href="/projects/">Projects</a></li>
+						<li class="normal"><a href="/events/">Events</a></li>
+						<li class="normal"><a href="/demo/">Showroom</a></li>
+						<li class="kopf"><span class="no">Education</span></li>
+						<li class="normal"><a href="/edu/">Talent Space</a></li>
+						<li class="normal"><a href="/edu/current/">Current Semester</a></li>
+						<li class="normal"><a href="/edu/programs/">Educational Programs</a></li>
+						<li class="normal"><a href="/studentprojects/">Student Projects</a></li>
+						<li class="kopf"><span class="no">Powered by Conversations</span></li>
+						<li class="normal"><a href="/contact/">Contact</a></li>
+						<li class="normal"><a href="/conversations/">VSR on Twitter</a></li>
+						<li class="normal"><a href="https://www.facebook.com/myVSR">A look inside at Facebook</a></li>
+						<li class="normal orange"><a href="/justaskus/">Just Ask Us!</a></li>
+					</ul>
+					<!-- Ende Navigation -->
+				</div>
+				<div id="content_left">
+					<div id="content_inhalt">
+						<!-- Beginn Inhalt -->
+						<a name="top" id="top"></a>
+						
+	<div class="w100">
+		<div class="row">
+			<div class="column w50">
+				<div class="content center" style="height:121px;position:relative;">
+					<!--<img id="vsrlogo" src="/images/vsr_logo.jpg" alt="VSR-Logo" class="reflect" />-->
+					<img id="vsrlogo" src="/img/vsr_logo_eu.jpg" alt="VSR-Logo" class="reflect" />
+					<!--<img id="vsrlogo_xmas" src="/img/vsr_logo_xmas_eu.jpg" alt="VSR-Logo" class="reflect" />-->
+				</div>
+			</div>
+			<div class="column w50">
+				<div id="ctl00_MainContent_infobox" class="content">
+					<h2 style="margin:1em;"><i>Realize the next level of collaboration</i></h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="column w50">
+				<div class="content">
+					<div class="leer" style="font-size: 0.9em; height: 15px;">
+						<div style="float: left"><a href="/news/" title="VSR News">VSR News</a></div>
+						<a href="/news/rss/" style="background: none; display: inline; float: right"><img src="/images/feed-icon-14x14.png" alt="RSS" /></a>
+					</div>
+					<!-- News aus DGS mittels XSL-Transformation -->
+					<div class="gradientbox news">
+  <div class="imgwrapper">
+    <img src="http://vsr.informatik.tu-chemnitz.de/news/images/edu.jpg" alt="Registration for Practical Course Web Engineering is online" class="reflect" />
+  </div>
+  <div class="infos">
+    <div class="date">2013-10-09</div>
+    <div class="mytitle">
+      <a href="/news/2013/035">Registration for Practical Course Web Engineering is online</a>
+    </div>
+    <div>Registration for the practical course 'Praktikum Web Engineering' is open now. Please register <a href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/5588058117/CourseNode/86306538753142">here</a>. For further information please visit the <a href="http://vsr.informatik.tu-chemnitz.de/edu/2013/webe-praktikum/">homepage</a>.</div>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3a%2f%2fvsr.informatik.tu-chemnitz.de%2fnews%2f2013%2f035&amp;locale=en_US&amp;layout=button_count&amp;action=like&amp;width=90&amp;height=25" allowTransparency="true" scrolling="no" frameborder="0" style="margin-top:5px;border:none;overflow:hidden;width:200px;height:25px;">
+    </iframe>
+  </div>
+</div>
+<div class="gradientbox news">
+  <div class="imgwrapper">
+    <img src="http://vsr.informatik.tu-chemnitz.de/news/images/edu.jpg" alt="Seminar registration is online" class="reflect" />
+  </div>
+  <div class="infos">
+    <div class="date">2013-10-07</div>
+    <div class="mytitle">
+      <a href="/news/2013/034">Seminar registration is online</a>
+    </div>
+    <div>Registration for the combined seminar 'Pro-/Haupt-/(Forschungs-) Seminar Web Engineering' is open now. Bachelor students register <a href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/5509775372/CourseNode/87357266241549">here</a>, Master students <a href="https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/5509775374/CourseNode/86306539067751">here</a>. For further information please visit the <a href="http://vsr.informatik.tu-chemnitz.de/edu/current/">VSR Education homepage</a>.</div>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=http%3a%2f%2fvsr.informatik.tu-chemnitz.de%2fnews%2f2013%2f034&amp;locale=en_US&amp;layout=button_count&amp;action=like&amp;width=90&amp;height=25" allowTransparency="true" scrolling="no" frameborder="0" style="margin-top:5px;border:none;overflow:hidden;width:200px;height:25px;">
+    </iframe>
+  </div>
+</div>
+					<!--  -->
+				</div>
+				
+			</div>
+			<div class="column w50 last">
+				<div id="slidebox">
+					<div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							Contact VSR
+						</div>
+						<div class="row sp5">
+							<div class="mytitle">Head of Group</div>
+							<div><a href="/people/gaedke/" title="visit homepage of Prof. Dr.-Ing. Martin Gaedke" class="nohl">Prof. Dr.-Ing. Martin Gaedke</a></div>
+						</div>
+						<div class="vcard">
+							<div class="row sp5">
+								<div class="mytitle">Office</div>
+								<div>
+								<!--
+									<div><a href="/people/steinbach/" title="visit homepage of Luise Steinbach" class="nohl"><span class="fn">Luise Steinbach</span></a></div>
+									-->
+									<div><a title="find room 1/B318" href="https://www.tu-chemnitz.de/tu/lageplan/campusfinder/campusfinder.php?raum=1/B318" class="nohl"><img class="icon" alt="Campusfinder" src="/img/binocular.png" /> Room 1/B318</a></div>
+									<div><a title="call Luise Steinbach" href="tel:+49-371-531-25530" class="nohl"><img class="icon" alt="anrufen" src="/img/telephone.png" /> <span class="tel"><span class="type hidden">work</span>Phone: <span class="value">+49 371 531-25530</span></span></a></div>
+									<div><a title="send Luise Steinbach a fax" href="fax:+49-371-531-25539" class="nohl"><img class="icon" alt="faxen" src="/img/printer.png" /> <span class="tel"><span class="type hidden">work</span><span class="type">Fax</span>: <span class="value">+49 371 531-25539</span></span></a></div>
+									<div><a href="mailto:vsr-office@informatik.tu-chemnitz.de" title="send VSR an email" class="nohl"><img class="icon" alt="send VSR an email" src="/img/envelope1.png" /> <span class="email"><span class="type">Email</span>: <span class="value">vsr-office@informatik.tu-chemnitz.de</span></span></a></div>
+								</div>
+							</div>
+							<div class="row sp5">
+								<div class="mytitle">Visiting Address</div>
+								<div>
+									<div class="org">
+										<div class="organization-name">Technische Universit&auml;t Chemnitz</div>
+										<div class="organization-unit">Fakult&auml;t f&uuml;r Informatik</div>
+									</div>
+									<div class="office">Professur Verteilte und Selbstorganisierende Rechnersysteme</div>
+									<div class="adr">
+										<div class="type hidden">work</div>
+										<div class="street-address">Straße der Nationen 62, Haus B</div>
+										<div><span class="postal-code">09111</span> <span class="locality">Chemnitz</span></div>
+										<div><span class="region">Saxony</span>, <span class="country-name">Germany</span></div>
+									</div>
+									<div class="hidden">
+										<div class="fn nickname">VSR</div>
+										<div class="url">https://vsr.informatik.tu-chemnitz.de</div>
+										<div class="geo">
+											<div class="latitude">50.839</div>
+											<div class="longitude">12.928</div>
+										</div>
+										<img src="https://vsr.informatik.tu-chemnitz.de/images/vsr_logo.jpg" alt="VSR-Logo" class="photo" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row sp5">
+							<div class="mytitle">Postal Address</div>
+							<div>
+								<div class="org">
+									<div class="organization-name">Technische Universit&auml;t Chemnitz</div>
+									<div class="organization-unit">Fakult&auml;t f&uuml;r Informatik</div>
+								</div>
+								<div class="office">Professur Verteilte und Selbstorganisierende Rechnersysteme</div>
+								<div class="adr">
+									<div class="type hidden">postal</div>
+									<div><span class="postal-code">09107</span> <span class="locality">Chemnitz</span></div>
+									<div><span class="region">Saxony</span>, <span class="country-name">Germany</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							Featured Projects
+						</div>
+						<div class="gradientbox news">
+							<div class="imgwrapper" style="height:180px">
+								<img class="reflect" alt="Europe funds ICT-Research at VSR within the FP7 research program! " src="https://vsr.informatik.tu-chemnitz.de/img/fp7.png" />
+								<br />
+								<img class="reflect" alt="Europe funds ICT-Research at VSR within the FP7 research program! " src="https://vsr.informatik.tu-chemnitz.de/img/eu.png" />
+							</div>
+							<div class="infos">
+								<div class="date">2010/10 - 2013/03</div>
+								<div class="mytitle">OMELETTE </div>
+								<div>We are happy to announce that VSR's researcher of the Chemnitz University of Technology will contribute to Europe's FP7 research strategy. The Open Mashup Enterprise service platform for LinkEd data in The TElco domain (OMELETTE) is a STREP project within Objective 1.2 Internet of Services (Call 5). The consortium coordinated by the Spanish company  Informatica Gesfor consists of organizations from six countries. OMELETTE aims to provide new platforms for service composition addressing mass users served by the telco industry. It will provide support for the development of telco services, their flexible usage in mashup environments and their deployment on an open interoperable mashup delivery platform. Further information here:  <a href="http://www.ict-omelette.eu/">project OMELETTE</a>.</div>
+							</div>
+						</div>
+					</div-->
+					<div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							Facebook News Feed
+						</div>
+						<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FmyVSR&amp;height=700&amp;show_faces=false&amp;colorscheme=light&amp;stream=true&amp;border_color=%23fff&amp;header=false" scrolling="no" frameborder="0" style="border:none; width:100%; height:700px; overflow:hidden;" allowTransparency="true"></iframe>
+					</div>
+					<div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							<a href="https://twitter.com/myVSR/lists/team" alt="VSR on Twitter">VSR on Twitter</a>
+						</div>
+						<ul id="tweetwall"></ul>
+					</div>
+					<div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							Recent Publications
+						</div>
+						<div class="gradientbox publications">
+  <div class="infos">
+    <div class="date">Matthias Heinrich, Franz Lehmann, Franz Josef Grüneberger, Martin Gaedke, Thomas Springer, Alexander Schill</div>
+    <div class="mytitle">
+      <a href="/publications/2013/17">Enriching Single-User Web Applications Non-Invasively with Shared Editing Support</a>
+      <br />
+      <span class="black">
+                                (Journal Article)
+                            </span>
+    </div>
+    <div>Science of Computer Programming</div>
+  </div>
+</div>
+<div class="gradientbox publications">
+  <div class="infos">
+    <div class="date">Maximilian Speicher, Andreas Both, Martin Gaedke</div>
+    <div class="mytitle">
+      <a href="/publications/2013/16">TellMyRelevance! Predicting the Relevance of Web Search Results from Cursor Interactions</a>
+      <br />
+      <span class="black">
+                                (Conference Paper)
+                            </span>
+    </div>
+    <div>Proceedings of 22nd ACM International Conference on Information and Knowledge Management</div>
+  </div>
+</div>
+<div class="gradientbox publications">
+  <div class="infos">
+    <div class="date">Maximilian Speicher, Andreas Both, Martin Gaedke</div>
+    <div class="mytitle">
+      <a href="/publications/2013/15">Towards Metric-based Usability Evaluation of Online Web Interfaces</a>
+      <br />
+      <span class="black">
+                                (Conference Paper)
+                            </span>
+    </div>
+    <div>Mensch &amp; Computer 2013 Workshopband</div>
+  </div>
+</div>
+<div class="gradientbox publications">
+  <div class="infos">
+    <div class="date">Maximilian Speicher, Andreas Both, Martin Gaedke</div>
+    <div class="mytitle">
+      <a href="/publications/2013/14">Was that Webpage Pleasant to Use? Predicting Usability Quantitatively from Interactions</a>
+      <br />
+      <span class="black">
+                                (Conference Paper)
+                            </span>
+    </div>
+    <div>Proceedings of 13th International Conference on Web Engineering Companion (ICWE2013 Companion)</div>
+  </div>
+</div>
+<div class="gradientbox publications">
+  <div class="infos">
+    <div class="date">Michael Röder, Maximilian Speicher, Ricardo Usbeck</div>
+    <div class="mytitle">
+      <a href="/publications/2013/13">Investigating Quality Raters' Performance Using Interface Evaluation Methods</a>
+      <br />
+      <span class="black">
+                                (Conference Paper)
+                            </span>
+    </div>
+    <div>Proceedings of INFORMATIK 2013</div>
+  </div>
+</div>
+					</div>
+					<div class="content">
+						<div class="leer" style="font-size: 0.9em; height: 15px;">
+							Upcoming Events
+						</div>
+						<div class="gradientbox projects3 vevent">
+  <div class="hidden uid">20120401T000000Z@vsr.informatik.tu-chemnitz.de</div>
+  <div class="imgwrapper">
+    <div class="imgwrapper">
+      <img src="/img/www2012_transparent_small.png" alt="www2012" class="reflect" />
+    </div>
+  </div>
+  <div class="infos">
+    <div class="date">2012/04 - 2012/04<span class="hidden dtstart">20120401T000000Z</span><span class="hidden dtend">20120401T000000Z</span></div>
+    <div class="mytitle">
+      <a href="http://www2012.org/" title="">
+        <span class="summary">World Wide Web Conference 2012</span>
+      </a>
+      <span class="hidden url">http://www2012.org/</span>
+    </div>
+    <div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Location</strong>
+        </div>
+        <div class="column w80 location">Lyon, France</div>
+      </div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Summary</strong>
+        </div>
+        <div class="column w80 description last">The World Wide Web Conference is a yearly international conference on the topic of the fut...</div>
+        <br class="clear" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gradientbox projects3 vevent">
+  <div class="hidden uid">20111001T000000Z@vsr.informatik.tu-chemnitz.de</div>
+  <div class="imgwrapper">
+    <div class="imgwrapper">
+      <img src="/img/servicewave2011.jpg" alt="ServiceWave 2011" class="reflect" />
+    </div>
+  </div>
+  <div class="infos">
+    <div class="date">2011/10 - 2011/10<span class="hidden dtstart">20111001T000000Z</span><span class="hidden dtend">20111001T000000Z</span></div>
+    <div class="mytitle">
+      <a href="http://www.servicewave.eu/" title="">
+        <span class="summary">ServiceWave 2011</span>
+      </a>
+      <span class="hidden url">http://www.servicewave.eu/</span>
+    </div>
+    <div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Location</strong>
+        </div>
+        <div class="column w80 location">Poznan, Poland</div>
+      </div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Summary</strong>
+        </div>
+        <div class="column w80 description last">ServiceWave 2011...</div>
+        <br class="clear" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gradientbox projects3 vevent">
+  <div class="hidden uid">20100701T000000Z@vsr.informatik.tu-chemnitz.de</div>
+  <div class="imgwrapper">
+    <div class="imgwrapper">
+      <img src="/img/icwe2010.png" alt="ICWE2010" class="reflect" />
+    </div>
+  </div>
+  <div class="infos">
+    <div class="date">2010/07 - 2010/07<span class="hidden dtstart">20100701T000000Z</span><span class="hidden dtend">20100701T000000Z</span></div>
+    <div class="mytitle">
+      <a href="http://icwe2010.webengineering.org/" title="">
+        <span class="summary">ICWE2010</span>
+      </a>
+      <span class="hidden url">http://icwe2010.webengineering.org/</span>
+    </div>
+    <div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Location</strong>
+        </div>
+        <div class="column w80 location">Vienna, Austria</div>
+      </div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Summary</strong>
+        </div>
+        <div class="column w80 description last">10th International Conference on Web Engineering...</div>
+        <br class="clear" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gradientbox projects3 vevent">
+  <div class="hidden uid">20100401T000000Z@vsr.informatik.tu-chemnitz.de</div>
+  <div class="imgwrapper">
+    <div class="imgwrapper">
+      <img src="/img/webist.png" alt="WEBIST2010" class="reflect" />
+    </div>
+  </div>
+  <div class="infos">
+    <div class="date">2010/04 - 2010/04<span class="hidden dtstart">20100401T000000Z</span><span class="hidden dtend">20100401T000000Z</span></div>
+    <div class="mytitle">
+      <a href="http://www.webist.org/" title="">
+        <span class="summary">WEBIST2010</span>
+      </a>
+      <span class="hidden url">http://www.webist.org/</span>
+    </div>
+    <div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Location</strong>
+        </div>
+        <div class="column w80 location">Valencia, Spain</div>
+      </div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Summary</strong>
+        </div>
+        <div class="column w80 description last">6th International Conference on Web Information Systems and Technologies...</div>
+        <br class="clear" />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gradientbox projects3 vevent">
+  <div class="hidden uid">20100301T000000Z@vsr.informatik.tu-chemnitz.de</div>
+  <div class="imgwrapper">
+    <div class="imgwrapper">
+      <img src="http://vsr.informatik.tu-chemnitz.de/img/iasted.png" alt="AfricaIMSA 2010" class="reflect" />
+    </div>
+  </div>
+  <div class="infos">
+    <div class="date">2010/03 - 2010/03<span class="hidden dtstart">20100301T000000Z</span><span class="hidden dtend">20100301T000000Z</span></div>
+    <div class="mytitle">
+      <a href="http://www.iasted.org/conferences/home-690.html" title="">
+        <span class="summary">AfricaIMSA 2010</span>
+      </a>
+      <span class="hidden url">http://www.iasted.org/conferences/home-690.html</span>
+    </div>
+    <div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Location</strong>
+        </div>
+        <div class="column w80 location">Sharm El Sheikh, Egypt</div>
+      </div>
+      <div class="line">
+        <div class="column w20">
+          <strong>Summary</strong>
+        </div>
+        <div class="column w80 description last">The IASTED African Conference on Internet and Multimedia Systems and Applications (AfricaI...</div>
+        <br class="clear" />
+      </div>
+    </div>
+  </div>
+</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+						<a name="bottom" id="bottom"></a>
+						<!-- Ende Inhalt -->
+					</div>
+				</div>
+				<div id="footer">
+					<div id="footer_left">
+						<a href="/contact/" title="Contact">Contact</a>
+					</div>
+					<div id="footer_right">
+						<ul class="menu">
+							<!--<li><a href="https://www.tu-chemnitz.de/informatik/?druck" title="Druckansicht"><img src="https://www.tu-chemnitz.de/tucal/img/printer.png" alt="Druckansicht" width="22" height="20" /></a></li>-->
+							<li><a href="javascript:addBookmark(self.location.href, 'TU Chemnitz: Fakultät für Informatik')"><img src="https://www.tu-chemnitz.de/tucal/img/bookmark.png" title="Diese Seite zu den Lesezeichen/Favoriten hinzuf&uuml;gen" alt="Zu Lesezeichen/Favoriten hinzuf&uuml;gen" width="22" height="20" /></a></li>
+							<li><a href="javascript:setStyleSheet('text');" title="Textversion"><img src="https://www.tu-chemnitz.de/tucal/img/text.png" title="Textversion" alt="Textversion" width="20" height="20" /></a></li>
+							<li><a href="https://www.tu-chemnitz.de/tu/allgemeines/barrierefrei.html"><img src="https://www.tu-chemnitz.de/tucal/img/w3c.png" title="Barrierefreie Gestaltung" alt="Barrierefreie Gestaltung" width="26" height="20" /></a></li>
+						</ul>
+					</div>
+					<div id="footer_middle">
+						Technische Universit&auml;t Chemnitz, Stra&szlig;e der Nationen 62, 09107 Chemnitz<br />
+						<ul class="menu">
+							<li><a href="https://www.tu-chemnitz.de/tu/impressum.html">Imprint</a></li>
+							<li> - Copyright &copy; 2010 by Chemnitz UT, Verteilte und Selbstorganisierende Rechnersysteme Research Group. All rights reserved.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="invisible">
+					<hr />
+					<a href="javascript:setStyleSheet('screen');" title="Style-Schema Standard">Standard</a>
+				</div>
+				<div class="invisible">
+					<ul>
+						<li><a accesskey="h" href="https://www.tu-chemnitz.de/" tabindex="5000">Startseite</a></li>
+						<li><a accesskey="l" href="https://www.tu-chemnitz.de/en/" tabindex="5001">Englisch</a></li>
+						<li><a accesskey="u" href="https://www.tu-chemnitz.de/www-index/wwwindex.php" tabindex="5002">Univerit&auml;t von A bis Z</a></li>
+						<li><a accesskey="k" href="https://www.tu-chemnitz.de/www-index/kontakt.php" tabindex="5003">Kontakt</a></li>
+						<li><a accesskey="a" href="https://www.tu-chemnitz.de/www-index/personen.html" tabindex="5004">Auskunft der TU Chemnitz</a></li>
+						<li><a accesskey="c" href="https://www.tu-chemnitz.de/tu/lageplan/" tabindex="5005">Campusplan</a></li>
+						<li><a accesskey="i" href="https://www.tu-chemnitz.de/urz/netz/netzdienste.html" tabindex="5006">Internet &amp; Service</a></li>
+						<li><a accesskey="s" href="https://www.tu-chemnitz.de/www-index/" tabindex="5007">Suche</a></li>
+						<li><a accesskey="m" href="https://www.tu-chemnitz.de/tu/presse/index.php" tabindex="5008">Medienportal</a></li>
+						<li><a accesskey="t" href="#top" tabindex="5009">zum Seitenanfang</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div id="google_translate_element"></div>
+		<script type="text/javascript">function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element'); }</script>
+		<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" type="text/javascript"></script>
+		
+	</body>
+</html>

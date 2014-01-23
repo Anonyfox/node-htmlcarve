@@ -6,24 +6,25 @@ cheerio = require "cheerio"
 request = require "request"
 iconv = require "iconv-lite"
 chardet = require "chardet"
-
-# shorthands:
-# - OG = "OpenGraph"
-# - TC = "Twitter Card"
-# - $  = serverside DOM, usable like jquery, see the cheerio github page for details
+parser = 
+  ogp: require "./ogp_parser"
+  tc: require "./tc_parser"
+  meta: require "./meta_parser"
 
 Htmlcarve.fromUrl = (url, fn) ->
-  request url, {encoding: null, timeout: 10000}, (error, response, body) ->
+  headers = {'User-Agent':"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36"}
+  request {url: url, encoding: null, timeout: 10000, headers: headers}, (error, response, body) ->
     parsePageBody error, response, body, (error, page) ->
-      info = Htmlcarve.fromString page
-      info.links = buildLinkDerivats(url)
-      fn null, info if fn
+      data = Htmlcarve.fromString page
+      data.links = buildLinkDerivats(url)
+      fn null, data if fn
 
 Htmlcarve.fromString = (text) ->
   $ = cheerio.load text, {ignoreWhitespace: true}
-  info = {html_meta: extractMeta($), open_graph: extractOG($), twitter_card: extractTC($)}
-  info.info = combineInfoPartials info
-  return info
+  data = {}
+  data.source = {html_meta: parser.meta.execute($), open_graph: parser.ogp.execute($), twitter_card: parser.tc.execute($)}
+  data.result = combineInfoPartials data.source
+  return data
 
 ### private functions below ###
 
@@ -36,34 +37,6 @@ parsePageBody = (error, response, body, fn) ->
 ### STANDARD EXTRACTORS ###
 # The following informations are needed:
 # {title, summary, image, feed, author, keywords, language, favicon}
-
-extractOG = ($) ->
-  {
-    title:    $("meta[property='og:title']").first().attr("content")
-    summary:  $("meta[property='og:description']").first().attr("content")
-    image:    $("meta[property='og:image']").first().attr("content")
-    language: $("meta[property='og:locale']").first().attr("content")
-  }
-
-extractMeta = ($) ->
-  {
-    title:    $("title").first().text() or $("h1").first().text() or $("h2").first().text() or $("h3").first().text()
-    summary:  $("meta[name='description']").first().attr("content")
-    image:    $("div img").first().attr("src")
-    language: $("html").attr("lang") or $("meta[http-equiv='content-language']").attr("content") or $("meta[name='language']").attr("content")
-    feed:     $("link[type='application/rss+xml']").attr("href") or $("link[type='application/atom+xml']").attr("href") or $("link[rel='alternate']").attr("href")
-    favicon:  $("link[rel='apple-touch-icon']").attr("href") or $("link[rel='shortcut icon']").attr("href") or $("link[rel='icon']").attr("href")
-    keywords: $("meta[name='keywords']").first().attr("content")
-    author:   $("meta[name='author']").first().attr("content")
-  }
-
-extractTC = ($) ->
-  {
-    title:    $("meta[name='twitter:title']").attr("content")
-    summary:  $("meta[name='twitter:description']").attr("content")
-    image:    $("meta[name='twitter:image']").attr("content")
-    author:   $("meta[name='twitter:creator']").attr("content")
-  }
 
 buildLinkDerivats = (link) ->
   url = require("url").parse(link)
@@ -95,17 +68,9 @@ splitToWords = (text) ->
   console.log clean
   words = clean.split(" ")
 
-logObject = (str, obj) ->
-  # clc = require "cli-color"
-  # pj = require "prettyjson"
-  # console.log clc.blue("\n+" + Array(79).join("="))
-  # console.log clc.blue("|") + clc.red(str)
-  # console.log clc.blue("+" + Array(79).join("="))
-  # console.log pj.render(obj)
-  console.log str, obj
-
 # when started directly as script
 if process.argv[1] is __filename
+  # some example links
   link = "http://www.spiegel.de/politik/deutschland/parteien-betonen-offenheit-vor-koalitions-sondierungen-a-927551.html"
   link2 = "http://venturebeat.com/2013/10/10/apple-iwatch-is-actually-a-home-automation-play-not-a-smartphone-companion-analyst/#Zjpr2zSfqX79WaPc.99"
   link3 = "http://vsr.informatik.tu-chemnitz.de/"

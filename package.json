@@ -1,6 +1,6 @@
 {
   "name": "htmlcarve",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Extract essential meta-informations from any web page, fast and dead simple.",
   "keywords": [
     "html",
@@ -57,9 +57,12 @@
   ],
   "devDependencies": {
     "mocha": "~1.13.0",
-    "chai": "~1.8.1"
+    "chai": "~1.8.1",
+    "jitter": "~1.2.1"
   },
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script -R spec"
+    "test": "./node_modules/mocha/bin/mocha",
+    "tester": "./node_modules/mocha/bin/mocha --watch --growl",
+    "compiler": "./node_modules/jitter/bin/jitter src lib"
   }
 }
