@@ -21,8 +21,7 @@ htmlcarve.fromUrl "http://venturebeat.com/", (error, data) ->
 
 ##Samples
 
-```JSON
-$ htmlcarve http://venturebeat.com/2014/01/20/ouch-hp-is-now-promoting-pcs-running-windows-7-because-windows-8-isnt-doing-so-hot/
+```Shell
 { source: 
    { html_meta: 
       { title: 'Ouch: HP is now promoting PCs running Windows 7 (because Windows 8 isn\'t doing so hot) | VentureBeat | Business | by Ricardo Bilton',
@@ -58,7 +57,7 @@ $ htmlcarve http://venturebeat.com/2014/01/20/ouch-hp-is-now-promoting-pcs-runni
      base: 'http://venturebeat.com' } }
 ```
 
-```JSON
+```Shell
 $ htmlcarve http://www.spin.com/articles/miserable-halloween-dream-stream/
 { source: 
    { html_meta: 
