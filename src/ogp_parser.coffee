@@ -8,3 +8,4 @@ OgpParser.execute = ($) ->
   summary:  $("meta[property='og:description']").first().attr("content")
   image:    $("meta[property='og:image']").first().attr("content")
   language: $("meta[property='og:locale']").first().attr("content")
+  site: $("meta[property='og:site_name']").first().attr("content")
