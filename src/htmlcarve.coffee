@@ -29,9 +29,13 @@ Htmlcarve.fromString = (text) ->
 ### private functions below ###
 
 parsePageBody = (error, response, body, fn) ->
-  console.log "error (http: #{response.statusCode}) while parsing... ", error if error or response.statusCode isnt 200
-  coding = chardet.detect body[0...1000] # 5000 characters should be enough for guessing, this algo is expensive !!
-  page = iconv.decode body, coding # converting just the html HEAD part may be enough...
+  if not response or not body
+    console.log "error (empty response or body) while parsing... "
+  else if error or response.statusCode isnt 200
+    console.log "error (http: #{response.statusCode}) while parsing... "
+  else
+    coding = chardet.detect body[0...1000] # 5000 characters should be enough for guessing, this algo is expensive !!
+    page = iconv.decode body, coding # converting just the html HEAD part may be enough...
   fn error, (page or "") if fn
 
 ### STANDARD EXTRACTORS ###
